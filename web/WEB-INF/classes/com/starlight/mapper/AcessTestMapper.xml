@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenyun.dao.TestDao">
+
+  <select id="findAll" resultType="com.starlight.entity.AcessTestEt"
+          >
+    SELECT  * FROM  ACESS
+  </select>
+ <!-- <select id="findAll"  resultType="com.wy.test.entity.Emp"
+  parameterType="com.wy.test.entity.Condition">
+    select * from EMP
+    <if test="deptno!=0 and deptno&lt;20">
+    	where deptno=#{deptno}
+    </if>
+    <if test="deptno!=0 and deptno>20">
+    	where deptno=#{deptno} and sal>2000
+    </if>
+  </select>
+  <select id="findAll1"  resultType="com.wy.test.entity.Emp"
+  parameterType="com.wy.test.entity.Condition">
+    select * from EMP
+    <choose>
+    	<when test="sal&lt;3000">
+    		where sal>#{sal}
+    	</when>
+    	<when test="sal>3000">
+    		where sal&lt;#{sal}
+    	</when>
+    	<otherwise>
+    		where comm is not null
+    	</otherwise>
+    </choose>
+  </select>
+  <select id="findAll2"  resultType="com.wy.test.entity.Emp"
+  parameterType="com.wy.test.entity.Condition">
+    select * from EMP
+    <where>
+	    <if test="deptno!=0 and deptno&lt;20">
+	    	deptno=#{deptno}
+	    </if>
+	    <if test="deptno!=0 and deptno>20">
+	        deptno=#{deptno} and sal>2000
+	    </if>
+    </where>
+  </select>
+  <select id="findAll3"  resultType="com.wy.test.entity.Emp"
+  parameterType="com.wy.test.entity.Condition">
+		select * from emp where deptno in
+		<foreach collection="emps"  item="e"
+		open="(" separator="," close=")">
+		#{e}
+		</foreach>
+</select>-->
+  
+</mapper>

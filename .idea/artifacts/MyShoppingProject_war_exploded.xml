@@ -1,0 +1,36 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MyShoppingProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/MyShoppingProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="MyShoppingProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="MyShoppingProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/ojdbc14_g.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/servlet-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/mybatis-3.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/aopalliance-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/commons-dbcp-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/commons-pool-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/jackson-core-2.5.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/commons-logging-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/mybatis-spring-1.2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/jackson-databind-2.5.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-tx-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-aop-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-web-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/jackson-annotations-2.5.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-core-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-jdbc-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-beans-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-webmvc-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-context-4.1.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/mysql-connector-java-6.0.4-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bin/spring-expression-4.1.4.RELEASE.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
