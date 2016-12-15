@@ -33,8 +33,8 @@ public class test {
             System.out.println(lists.getAdm_id()+","+lists.getAdminfo_idnum()+","+
                     lists.getAdminfo_address()+","+lists.getAdminfo_phome()+","+lists.getAdminfo_sex());
         }
-        System.out.println("aaa");
-        System.out.println("aaaaaaaaaaaa");
+        System.out.println("aaaaaaa");
+        System.out.println("aaaaaaaaaaaaaaaa");
         return "index";
     }
 }
