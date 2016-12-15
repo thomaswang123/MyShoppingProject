@@ -7,5 +7,6 @@ public class testsa {
     void test(){
         System.out.println("aaa");
         System.out.pringln("aaaaaaaaaa");
+        System.out.pringln("cccccccc");
     }
 }
