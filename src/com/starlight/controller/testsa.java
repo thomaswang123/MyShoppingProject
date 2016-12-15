@@ -5,6 +5,6 @@ package com.starlight.controller;
  */
 public class testsa {
     void test(){
-        System.out.println("agaaaaaaaaaaaga ");
+        System.out.println("agaaaaaaaaaaaaaaaga ");
     }
 }
