@@ -6,6 +6,6 @@ package com.starlight.controller;
 public class testsa {
     void test(){
         System.out.println("agaaaaaaaaaaaaaaaaaaaga ");
-        System.out.println("|AAfdsafsd")
+        System.out.println("|AAfdsafsd");
     }
 }
