@@ -34,7 +34,7 @@ public class test {
                     lists.getAdminfo_address()+","+lists.getAdminfo_phome()+","+lists.getAdminfo_sex());
         }
         System.out.println("aaa");
-        System.out.println("aaa");
+        System.out.println("aaaaaa");
         return "index";
     }
 }
