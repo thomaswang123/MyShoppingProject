@@ -1,162 +1,169 @@
---管理员表关联了管理员详细信息表
+--创建数据库
 
---删除表
+CREATE database accout_demo;
 
-drop table Administrator;
+--使用数据库
 use accout_demo;
---管理员表
-create table Administrator(
-Adm_Id integer primary key,
-Adm_Name varchar(16) not null,
-Adm_PassWord varchar(16) not null
+
+--***********************************************************************************
+/*用户表*/
+DROP TABLE User;
+
+CREATE TABLE User
+(
+   u_id         INT         ,
+   u_name       VARCHAR (16)                   NOT NULL ,
+   u_pwd        VARCHAR (16)                   NOT NULL ,
+   CONSTRAINT  PK_USER_UID PRIMARY KEY (u_id)
 );
 
+--创建自增长序列
 
---设置id默认值和自定增长序列
-alter table Administrator modify Adm_Id integer default '1';
-alter table Administrator modify Adm_Id integer auto_increment ;
-
---删除表
-
-drop table AdmInfo;
+ALTER TABLE User modify u_id INTEGER DEFAULT '1';
+ALTER TABLE User modify u_id INTEGER auto_increment ;
 
 
---管理员详细信息表
-create table AdmInfo(
-Adm_Id integer primary key,
-AdmInfo_Sex char(2),
-Adminfo_IdNum varchar(18),
-Adminfo_Phone varchar(11),
-Adminfo_Address varchar(50),
-foreign key(Adm_Id) references Administrator(Adm_Id)
+--***********************************************************************************
+/*用户密保*/
+DROP TABLE PasswordProtection;
+
+CREATE TABLE PasswordProtection
+(
+   pp_id                INT                           ,
+   pp_uid               INT                            ,
+   pp_question          VARCHAR (50)                  ,
+   pp_answer            VARCHAR (20)                  ,
+   CONSTRAINT PK_PASSWORDPROTECTION_PPID PRIMARY KEY (pp_id),
+   FOREIGN KEY (pp_uid) REFERENCES User(u_id)
 );
 
---用户信息表关联了用户详细信息表
---用户信息表关联了购物车表
---用户信息表关联了钱包表
+--创建自增长序列
+ALTER TABLE PasswordProtection modify pp_id INTEGER DEFAULT '1';
+ALTER TABLE PasswordProtection modify pp_id INTEGER auto_increment ;
 
---用户信息表
-create table User(
-  U_Id integer primary key,
-  U_Name varchar(16) not null,
-  U_PassWord varchar(16) not null
+--***********************************************************************************
+/*钱包*/
+DROP TABLE Wallet;
+
+CREATE TABLE Wallet
+(
+   w_id                                       ,
+   w_money        FLOAT (7,2),
+   w_paypwd       INT                            NOT NULL ,
+   CONSTRAINT PK_WALLET_WID PRIMARY KEY (w_id ),
+   FOREIGN KEY (w_id) REFERENCES User(u_id)
 );
 
-alter table User modify U_Id integer default '1';
-alter table User modify U_Id integer auto_increment ;
+--***********************************************************************************
+/*用户信息表*/
+DROP TABLE UserInfo;
 
+CREATE TABLE UserInfo
+(
+   uinfo_id      INT                            ,
+   uinfo_nickname VARCHAR (16)                 ,
+   uinfo_sex        CHAR (2)                    NOT NULL ,
+   uinfo_age      INT                           NOT NULL ,
+   uinfo_phone    VARCHAR (11)                  NOT NULL ,
+   uinfo_address  VARCHAR (50)                  NOT NULL ,
+   CONSTRAINT PK_USERINF_ID PRIMARY KEY (uinfo_id),
+   FOREIGN KEY (uinfo_id) REFERENCES User(u_id)
+);
+--***********************************************************************************
+/*商品表*/
+DROP TABLE Goods;
 
---创建用户详细信息表
-create table UserInfo(
-  U_Id integer primary key,
-  UInfo_Sex char(2),
-  UInfo_Age int,
-  UInfo_Phone varchar(11),
-  U_Address varchar(50),
-  U_Remark varchar(200),
-  foreign key(U_Id) references User(U_Id)
+CREATE TABLE Goods
+(
+   g_id         INT                            ,
+   g_name       VARCHAR (16)                   NOT NULL ,
+   g_picture    VARCHAR (16)                   NOT NULL ,
+   g_price      FLOAT (7,2)                    NOT NULL ,
+   g_describe   VARCHAR (100)                  ,
+   CONSTRAINT PK_GOODS_GID PRIMARY KEY (g_id)
 );
 
+--创建自增长序列
+ALTER TABLE Goods modify g_id   INTEGER DEFAULT '1';
+ALTER TABLE Goods modify g_id   INTEGER auto_increment ;
 
---删除表
 
-drop table PasswordProtection;
+--***********************************************************************************
 
---用户密保表
-create table PasswordProtection(
-  PP_Id integer primary key,
-  U_Id integer not null,
-  PP_Question varchar(50),
-  PP_Answer varchar(50),
-  foreign key(U_Id) references UserInfo(U_Id)
+/*购物车*/
+DROP TABLE ShoppingCart;
+
+CREATE TABLE ShoppingCart
+(
+   sc_id   INT                            ,
+   sc_uid      INT                        NOT NULL ,
+   sc_gid     INT                         NOT NULL ,
+   sc_number    INT                       NOT NULL ,
+   sc_date      DATE                      NOT NULL ,
+   sc_summoney    FLOAT (7,2)            NOT NULL ,
+   CONSTRAINT PK_SHOPPINGCART_SCID PRIMARY KEY (sc_id),
+   FOREIGN KEY (sc_uid) REFERENCES User(u_id),
+   FOREIGN KEY (sc_gid) REFERENCES Goods(g_id)
 );
 
---设置PP_Id默认值和自定增长序列
-alter table PasswordProtection modify PP_Id integer default '1';
-alter table PasswordProtection modify PP_Id integer auto_increment ;
+--创建自增长序列
+ALTER TABLE ShoppingCart modify sc_id  INTEGER DEFAULT '1';
+ALTER TABLE ShoppingCart modify sc_id  INTEGER auto_increment ;
 
+--***********************************************************************************
+/*订单表*/
+DROP TABLE Orders;
 
---删除表
-
-drop table Wallet;
-
---钱包表
-create table Wallet(
-  U_Id integer primary key,
-  W_Number float(7,2),
-  W_PassWord int(6),
-  foreign key(U_Id) references User(U_Id)
+CREATE TABLE Orders
+(
+   o_id         INT                            ,
+   o_uid        INT                            NOT NULL ,
+   o_gid        INT                            NOT NULL ,
+   o_money        FLOAT (7,2)                  NOT NULL ,
+   o_date         DATE                          NOT NULL ,
+   o_number       INT                          NOT NULL ,
+   CONSTRAINT PK_ORDERS_OID PRIMARY KEY (o_id),
+   FOREIGN KEY (o_uid) REFERENCES User (u_id)
 );
 
---购物车表
-create table ShoppingCart(
-  SC_Id integer primary key,
-  U_Id integer not null,
-  G_Id integer,
-  SC_IsBuy char(2),
-  foreign key(U_Id) references User(U_Id)
+--创建自增长序列
+ALTER TABLE Orders modify o_id   INTEGER DEFAULT '1';
+ALTER TABLE Orders modify o_id   INTEGER auto_increment ;
+
+--***********************************************************************************
+/*库存*/
+DROP TABLE Repertory;
+
+CREATE TABLE Repertory
+(
+  ry_id        INT                            ,
+  ry_number    INT                            NOT NULL,
+  CONSTRAINT PK_REPERTORY_RYID PRIMARY KEY (ry_id),
+  FOREIGN KEY (ry_id) REFERENCES Goods (g_id)
 );
 
+--***********************************************************************************
+/*意见表*/
+DROP TABLE Opinion;
 
---设置PP_Id默认值和自定增长序列
-alter table ShoppingCart modify SC_Id integer default '1';
-alter table ShoppingCart modify SC_Id integer auto_increment ;
-
-
---订单表
-create table Orders(
-  O_Id integer primary key,
-  U_Id integer not null,
-  G_Id integer not null,
-  G_Name varchar(16) not null,
-  G_Price float(7,2) not null,
-  O_Number integer,
-  O_Date varchar(15),
-  foreign key(U_Id) references User(U_Id)
+CREATE TABLE Opinion
+(
+   on_id          INT                           NOT NULL ,
+   on_gerade      INT                           NOT NULL ,
+   on_discuss   VARCHAR (100)                     ,
+   CONSTRAINT PK_OPINION_ONID PRIMARY KEY (on_id),
+   FOREIGN KEY (on_id) REFERENCES Goods (g_id)
 );
 
---设置PP_Id默认值和自定增长序列
-alter table Orders modify O_Id integer default '1';
-alter table Orders modify O_Id integer auto_increment ;
+--***********************************************************************************
+/*管理员*/
+DROP TABLE Admin;
 
---删除表
-
-drop table Goods;
-
-
---商品表
-create table Goods (
-  G_Id       INTEGER PRIMARY KEY,
-  G_Name     VARCHAR(16),
-  G_Picture  VARCHAR(16),
-  G_Price    FLOAT(7, 2),
-  G_Describe VARCHAR(100),
-  G_Grade    INTEGER
+CREATE TABLE Admin
+(
+   admin_id      INT                           NOT NULL ,
+   admin_classes INT                          NOT NULL,
+   CONSTRAINT PK_ADMIN_ADMINID PRIMARY KEY (admin_id),
+   FOREIGN KEY (admin_id) REFERENCES User(u_id)
 );
---设置PP_Id默认值和自定增长序列
-alter table Goods modify G_Id integer default '1';
-alter table Goods modify G_Id integer auto_increment ;
 
-
-insert into Administrator (Adm_Name,Adm_PassWord) values('张三','123');
-
-insert into AdmInfo (Adm_Id,AdmInfo_Sex,Adminfo_IdNum,Adminfo_Phone,Adminfo_Address) values(1,'男','441414',13203200681,'湖南省长沙市岳麓区');
-
-
-insert into User(U_Name,U_PassWord)values('李四','123456');
-
-
-
-insert into UserInfo(U_Id,UInfo_Sex,UInfo_Age,UInfo_Phone,U_Address,U_Remark)values(1,'男',12,'13257298980','北京中关村','我是大帅哥');
-
-
-insert into PasswordProtection(U_Id,PP_Question,PP_Answer)values(1,'我的生日是多少？','1995/8/25');
-
-insert into Wallet(U_Id,W_Number,W_PassWord)values(1,500.00,123456);
-
-insert into ShoppingCart(U_Id,G_Id,SC_IsBuy)values(1,1,'否');
-
-insert into Orders(U_Id,G_Id,G_Name,G_Price,O_Number,O_Date)values(1,1,'iphone',2000.00,3,'14/3/2');
-
-
-insert into Goods(G_Name,G_Picture,G_Price,G_Describe,G_Grade)values('红旗牌自行车','42.jpg',888.00,'国产东风系列',4);
