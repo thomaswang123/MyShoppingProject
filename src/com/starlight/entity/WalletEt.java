@@ -2,6 +2,7 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ * 钱包类
  */
 public class WalletEt {
     private int w_id;

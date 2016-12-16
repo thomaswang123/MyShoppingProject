@@ -2,7 +2,10 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ *
+ * 商品类
  */
+
 public class GoodsEt {
     private int g_id ;
     private String g_name ;

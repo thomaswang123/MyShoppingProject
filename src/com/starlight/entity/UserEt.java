@@ -2,6 +2,8 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ *
+ * 用户类
  */
 public class UserEt {
    private int   u_id ;

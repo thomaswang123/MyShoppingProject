@@ -2,6 +2,7 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ * 用信息类
  */
 public class UserinfoEt {
     private int uinfo_id ;

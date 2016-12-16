@@ -2,6 +2,7 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ * 购物车类
  */
 public class ShoppingCartEt {
     private int sc_id ;
