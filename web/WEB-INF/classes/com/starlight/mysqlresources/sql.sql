@@ -1,9 +1,9 @@
---管理员表关联了管理员详细信息表
+管理员表关联了管理员详细信息表
 
 --删除表
 
 drop table Administrator;
-use accout_demo;
+
 --管理员表
 create table Administrator(
 Adm_Id integer primary key,
@@ -31,9 +31,15 @@ Adminfo_Address varchar(50),
 foreign key(Adm_Id) references Administrator(Adm_Id)
 );
 
---用户信息表关联了用户详细信息表
---用户信息表关联了购物车表
---用户信息表关联了钱包表
+
+
+
+
+
+
+用户信息表关联了用户详细信息表
+用户信息表关联了购物车表
+用户信息表关联了钱包表
 
 --用户信息表
 create table User(
@@ -130,8 +136,7 @@ create table Goods (
   G_Name     VARCHAR(16),
   G_Picture  VARCHAR(16),
   G_Price    FLOAT(7, 2),
-  G_Describe VARCHAR(100),
-  G_Grade    INTEGER
+  G_Describe VARCHAR(100)
 );
 --设置PP_Id默认值和自定增长序列
 alter table Goods modify G_Id integer default '1';
@@ -159,4 +164,4 @@ insert into ShoppingCart(U_Id,G_Id,SC_IsBuy)values(1,1,'否');
 insert into Orders(U_Id,G_Id,G_Name,G_Price,O_Number,O_Date)values(1,1,'iphone',2000.00,3,'14/3/2');
 
 
-insert into Goods(G_Name,G_Picture,G_Price,G_Describe,G_Grade)values('红旗牌自行车','42.jpg',888.00,'国产东风系列',4);
+insert into Goods(G_Name,G_Picture,G_Price,G_Describe)values('红旗牌自行车','42.jpg',888.00,'国产东风系列');

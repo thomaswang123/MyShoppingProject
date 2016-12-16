@@ -1,8 +1,6 @@
-package com.starlight.Controll;
+package com.starlight.controller;
 
 import com.starlight.dao.AdminfoEtDao;
-import com.starlight.dao.TestDao;
-import com.starlight.entity.AcessTestEt;
 import com.starlight.entity.AdminfoEt;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
