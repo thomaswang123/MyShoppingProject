@@ -95,7 +95,7 @@ DROP TABLE ShoppingCart;
 
 CREATE TABLE ShoppingCart
 (
-   sc_id   INT                            ,
+   sc_id        INT                            ,
    sc_uid      INT                        NOT NULL ,
    sc_gid     INT                         NOT NULL ,
    sc_number    INT                       NOT NULL ,
