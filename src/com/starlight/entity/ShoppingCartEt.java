@@ -11,7 +11,6 @@ public class ShoppingCartEt {
     private int sc_number;
     private float sc_summoney ;
     private String sc_date ;
-    private int oid;
 
     public int getSc_id() {
         return sc_id;
@@ -61,11 +60,4 @@ public class ShoppingCartEt {
         this.sc_date = sc_date;
     }
 
-    public int getOid() {
-        return oid;
-    }
-
-    public void setOid(int oid) {
-        this.oid = oid;
-    }
 }

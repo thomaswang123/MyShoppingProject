@@ -5,7 +5,7 @@ package com.starlight.entity;
  *
  * 意见类
  */
-public class Opinion {
+public class OpinionEt {
     private int on_id ;
     private  int on_gerade ;
     private String on_discuss;
