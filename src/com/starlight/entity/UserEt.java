@@ -30,7 +30,7 @@ public class UserEt {
         return u_pawd;
     }
 
-    public void setU_pawd(String u_password) {
+    public void setU_pawd(String u_pawd) {
         this.u_pawd = u_pawd;
     }
 }

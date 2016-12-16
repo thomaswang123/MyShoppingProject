@@ -1,9 +1,12 @@
 package com.starlight.Controll;
 
+import com.starlight.entity.AdminfoEt;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
 
 /**
  * Created by thomas.wang on 2016/12/9.
@@ -21,7 +24,7 @@ public class test {
             System.out.println(lists.getAs_ages()+","+lists.getAs_id()+","
                                     +lists.getAs_name()+","+lists.getAs_acess());
         }*/
-      /*  AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);
+       /* AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);
         ArrayList<AdminfoEt> list =  adminfodao.findAll();
         for (AdminfoEt lists:list) {
             System.out.println(lists.getAdm_id()+","+lists.getAdminfo_idnum()+","+

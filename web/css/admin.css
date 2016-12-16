@@ -16,7 +16,7 @@ body{
     width: 80%;
     height: 727px;
     margin-left: 10%;
-    border: inset;
+   /* border: inset;*/
    /* background-color: #394c53;*/
 }
 .left_menuzi span{
@@ -29,7 +29,7 @@ body{
 }
 .yang{
   width: 90%;
-    height: 640px;
+    height: 660px;
 }
 .usertable tr{
     height: 30px;
