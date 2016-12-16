@@ -1073,7 +1073,7 @@ color:red;
 .sky-form .rating label {
 	display: block;
 	float: left;
-
+	height: -4px;
 	cursor: pointer;
 }
 .sky-form [class^="icon-"] {
@@ -1428,13 +1428,14 @@ p span.overline{
 	margin: 10px 0;
 }
 .register-top-grid span, .register-bottom-grid span {
-	color:#999;
-	font-size: 0.85em;
-	padding-bottom: 0.2em;
-	display: block;
-	text-transform: uppercase;
-	margin-bottom: 4px;
+    color: #999;
+    font-size: 0.85em;
+    padding-bottom: 0.2em;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }
+
 .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
 	border: 1px solid #555;
 	outline-color:#FD9F3E;
@@ -1746,7 +1747,7 @@ a.item_add1 {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding: 10px 15px;
-
+  background: url(0) #f54d56;
 }
 a.item_add1:hover{
 	background:rgb(3, 193, 167);
@@ -1772,7 +1773,7 @@ ul.qty li p {
 }
 li.bt-nn h6 {
   font-size: 1.2em;
-
+  text-align: r;
   color: #621622;
   margin: 1em 0;
 }
@@ -1805,7 +1806,7 @@ li.bt-nn h6 {
 }
 
 i.sear{
-
+  background: url(../images/search-icon.png) no-repeat 0px 2px;
   height: 26px;
   width: 26px;
   display: inline-block;
@@ -1823,14 +1824,14 @@ i.sear{
   font-size: 0.85em;
 }
 i.ca-r{
-
+  background: url(../images/ca-r.png) no-repeat 0px 0px;
   height: 26px;
   width: 26px;
   display: inline-block;
  vertical-align:middle;
 }
 i.sele{
-
+  background: url(../images/sele.png) no-repeat 0px 0px;
   height: 26px;
   width: 26px;
   display: inline-block;
@@ -3331,5 +3332,4 @@ h2 {
     bottom: 17%;
 }
 }
-
 /*--//responsive-design---*/

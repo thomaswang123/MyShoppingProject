@@ -35,6 +35,8 @@ public class test {
         }
         System.out.println("aaaaaaa");
         System.out.println("aaaaaaaaaaaaaaaa");
+        System.out.println("aaa");
+        System.out.println("ahello");
         return "index";
     }
 }
