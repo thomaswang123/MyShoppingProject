@@ -1,88 +1,174 @@
+--创建数据库
+
+CREATE database accout_demo;
+
+--使用数据库
+use accout_demo;
+
+--***********************************************************************************
 /*用户表*/
-create table Users
+DROP TABLE User;
+
+CREATE TABLE User
 (
-   u_id         int                            not null,
-   u_name       varchar(16)                    not null,
-   u_pawd       varchar(16)                    not null,
-   constraint PK_USER  primary key clustered (u_id)
+   u_id         INT         ,
+   u_name       VARCHAR (16)                   NOT NULL ,
+   u_pwd        VARCHAR (16)                   NOT NULL ,
+   CONSTRAINT  PK_USER_UID PRIMARY KEY (u_id)
 );
+
+--创建自增长序列
+
+ALTER TABLE User modify u_id INTEGER DEFAULT '1';
+ALTER TABLE User modify u_id INTEGER auto_increment ;
+
+
+--***********************************************************************************
 /*用户密保*/
-create table PasswordProtection
+DROP TABLE PasswordProtection;
+
+CREATE TABLE PasswordProtection
 (
-   pp_id                int                            not null,
-   pp_question          varchar(50)                    not null,
-   pp_answer            varchar(20)                    not null,
-   constraint PK_PASSWORDPROTECTION primary key clustered (pp_id)
+   pp_id                INT                           ,
+   pp_uid               INT                            ,
+   pp_question          VARCHAR (50)                  ,
+   pp_answer            VARCHAR (20)                  ,
+   CONSTRAINT PK_PASSWORDPROTECTION_PPID PRIMARY KEY (pp_id),
+   FOREIGN KEY (pp_uid) REFERENCES User(u_id)
 );
+
+--创建自增长序列
+ALTER TABLE PasswordProtection modify pp_id INTEGER DEFAULT '1';
+ALTER TABLE PasswordProtection modify pp_id INTEGER auto_increment ;
+
+--***********************************************************************************
 /*钱包*/
-create table Wallet
+DROP TABLE Wallet;
+
+CREATE TABLE Wallet
 (
-   w_id            int                            not null,
-   w_money         float(7,2)                     ,
-   w_paypawd       int                              not null,
-   constraint PK_WALLET primary key clustered (w_id)
+   w_id                                       ,
+   w_money        FLOAT (7,2),
+   w_paypwd       INT                            NOT NULL ,
+   CONSTRAINT PK_WALLET_WID PRIMARY KEY (w_id ),
+   FOREIGN KEY (w_id) REFERENCES User(u_id)
 );
+
+--***********************************************************************************
 /*用户信息表*/
-create table UserInfo
+DROP TABLE UserInfo;
+
+CREATE TABLE UserInfo
 (
-   uinfo_id      int                            not null,
-   uinfo_sex        char(2)                      not null,
-   uinfo_age      int                            not null,
-   uinfo_phone    varchar(11)                    ,
-   uinfo_address  varchar(50)                    ,
-   constraint PK_USERINF primary key clustered (uinfo_id)
+   uinfo_id      INT                            ,
+   uinfo_nickname VARCHAR (16)                 ,
+   uinfo_sex        CHAR (2)                    NOT NULL ,
+   uinfo_age      INT                           NOT NULL ,
+   uinfo_phone    VARCHAR (11)                  NOT NULL ,
+   uinfo_address  VARCHAR (50)                  NOT NULL ,
+   CONSTRAINT PK_USERINF_ID PRIMARY KEY (uinfo_id),
+   FOREIGN KEY (uinfo_id) REFERENCES User(u_id)
 );
-/*购物车*/
-create table ShoppingCart
-(
-   sc_id(         int                            not null,
-   sc_uid         int                          not  null,
-   sc_gid         int                           not  null,
-   sc_number      int                          not  null,
-   sc_summoney    float(7,2)                 not   null,
-   sc_date        date                         not   null,
-   sc_oid         int                         not   null,
-   constraint PK_SHOPPINGCART primary key clustered (sc_id)
-);
-/*订单表*/
-create table Orders
-(
-   o_id           int                            not    null,
-   o_uid          int                            not    null,
-   o_gid          int                            not    null,
-   o_money        float(7,2)                   not    null,
-   o_date         date                         not    null,
-   o_number       int                                  null,
-   constraint PK_ORDERS primary key clustered (o_id)
-);
+--***********************************************************************************
 /*商品表*/
-create table Goods
+DROP TABLE Goods;
+
+CREATE TABLE Goods
 (
-   g_id         int                             not null,
-   g_name       varchar(16)                    not null,
-   g_price     float(7,2)                      not null,
-   g_describe   varchar(100)                   ,
-   constraint PK_GOODS primary key clustered (g_id)
+   g_id         INT                            ,
+   g_name       VARCHAR (16)                   NOT NULL ,
+   g_picture    VARCHAR (16)                   NOT NULL ,
+   g_price      FLOAT (7,2)                    NOT NULL ,
+   g_describe   VARCHAR (100)                  ,
+   CONSTRAINT PK_GOODS_GID PRIMARY KEY (g_id)
 );
+
+--创建自增长序列
+ALTER TABLE Goods modify g_id   INTEGER DEFAULT '1';
+ALTER TABLE Goods modify g_id   INTEGER auto_increment ;
+
+
+--***********************************************************************************
+
+/*购物车*/
+DROP TABLE ShoppingCart;
+
+CREATE TABLE ShoppingCart
+(
+   sc_id        INT                            ,
+   sc_uid      INT                        NOT NULL ,
+   sc_gid     INT                         NOT NULL ,
+   sc_number    INT                       NOT NULL ,
+   sc_date      DATE                      NOT NULL ,
+   sc_summoney    FLOAT (7,2)            NOT NULL ,
+   CONSTRAINT PK_SHOPPINGCART_SCID PRIMARY KEY (sc_id),
+   FOREIGN KEY (sc_uid) REFERENCES User(u_id),
+   FOREIGN KEY (sc_gid) REFERENCES Goods(g_id)
+);
+
+--创建自增长序列
+ALTER TABLE ShoppingCart modify sc_id  INTEGER DEFAULT '1';
+ALTER TABLE ShoppingCart modify sc_id  INTEGER auto_increment ;
+
+--***********************************************************************************
+/*订单表*/
+DROP TABLE Orders;
+
+CREATE TABLE Orders
+(
+   o_id         INT                            ,
+   o_uid        INT                            NOT NULL ,
+   o_gid        INT                            NOT NULL ,
+   o_money        FLOAT (7,2)                  NOT NULL ,
+   o_date         DATE                          NOT NULL ,
+   o_number       INT                          NOT NULL ,
+   CONSTRAINT PK_ORDERS_OID PRIMARY KEY (o_id),
+   FOREIGN KEY (o_uid) REFERENCES User (u_id)
+);
+
+--创建自增长序列
+ALTER TABLE Orders modify o_id   INTEGER DEFAULT '1';
+ALTER TABLE Orders modify o_id   INTEGER auto_increment ;
+
+--***********************************************************************************
 /*库存*/
-create table Repertory
+DROP TABLE Repertory;
+
+CREATE TABLE Repertory
 (
-  ry_id        int                            not null,
-  ry_number    int                            ,
-  constraint PK_REPERTORY primary key clustered (ry_id)
+  ry_id        INT                            ,
+  ry_number    INT                            NOT NULL,
+  CONSTRAINT PK_REPERTORY_RYID PRIMARY KEY (ry_id),
+  FOREIGN KEY (ry_id) REFERENCES Goods (g_id)
 );
+
+--***********************************************************************************
 /*意见表*/
-create table Opinion
+DROP TABLE Opinion;
+
+CREATE TABLE Opinion
 (
-   on_id          int                            not null,
-   on_gerade      int                            not null,
-   on_discuss   varchar(100)                     ,
-   constraint PK_OPINION primary key clustered (on_id)
+   on_id          INT                           NOT NULL ,
+   on_gid         INT                           NOT NULL ,
+   on_uid         INT                           NOT NULL ,
+   on_grade      INT                           NOT NULL ,
+   on_discuss   VARCHAR (100)                     ,
+   CONSTRAINT PK_OPINION_ONID PRIMARY KEY (on_id),
+   FOREIGN KEY (on_gid) REFERENCES Goods (g_id)
 );
+--创建自增长序列
+ALTER TABLE Opinion modify on_id   INTEGER DEFAULT '1';
+ALTER TABLE Opinion modify on_id   INTEGER auto_increment ;
+
+--***********************************************************************************
 /*管理员*/
-create table Admin
+DROP TABLE Admin;
+
+CREATE TABLE Admin
 (
-   admin_id      int                            not null,
-   admin_classes int                          not null,
-   constraint PK_ADMIN primary key clustered (admin_id)
+   admin_id      INT                           NOT NULL ,
+   admin_classes INT                          NOT NULL,
+   CONSTRAINT PK_ADMIN_ADMINID PRIMARY KEY (admin_id),
+   FOREIGN KEY (admin_id) REFERENCES User(u_id)
 );
+
