@@ -2,26 +2,36 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ * 用信息类
  */
 public class UserinfoEt {
-    private int u_id ;
-    private char uinfo_sex ;
+    private int uinfo_id ;
+    private String uinfo_sex ;
+    private String uinfo_nickname ;
     private int uinfo_age ;
-    private String  u_address;
+    private String  uinfo_address;
 
-    public int getU_id() {
-        return u_id;
+    public String getUinfo_nickname() {
+        return uinfo_nickname;
     }
 
-    public void setU_id(int u_id) {
-        this.u_id = u_id;
+    public void setUinfo_nickname(String uinfo_nickname) {
+        this.uinfo_nickname = uinfo_nickname;
     }
 
-    public char getUinfo_sex() {
+    public int getUinfo_id() {
+        return uinfo_id;
+    }
+
+    public void setUinfo_id(int uinfo_id) {
+        this.uinfo_id = uinfo_id;
+    }
+
+    public String getUinfo_sex() {
         return uinfo_sex;
     }
 
-    public void setUinfo_sex(char uinfo_sex) {
+    public void setUinfo_sex(String uinfo_sex) {
         this.uinfo_sex = uinfo_sex;
     }
 
@@ -33,11 +43,11 @@ public class UserinfoEt {
         this.uinfo_age = uinfo_age;
     }
 
-    public String getU_address() {
-        return u_address;
+    public String getUinfo_address() {
+        return uinfo_address;
     }
 
-    public void setU_address(String u_address) {
-        this.u_address = u_address;
+    public void setUinfo_address(String uinfo_address) {
+        this.uinfo_address = uinfo_address;
     }
 }

@@ -2,13 +2,13 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ *  订单类
  */
 public class OredersEt {
     private int o_id ;
-    private int u_id ;
-    private int g_id ;
-    private String  g_name;
-    private float g_price ;
+    private int o_uid ;
+    private int o_gid ;
+    private float  o_money;
     private  int o_number ;
     private String o_date ;
 
@@ -20,36 +20,28 @@ public class OredersEt {
         this.o_id = o_id;
     }
 
-    public int getU_id() {
-        return u_id;
+    public int getO_uid() {
+        return o_uid;
     }
 
-    public void setU_id(int u_id) {
-        this.u_id = u_id;
+    public void setO_uid(int o_uid) {
+        this.o_uid = o_uid;
     }
 
-    public int getG_id() {
-        return g_id;
+    public int getO_gid() {
+        return o_gid;
     }
 
-    public void setG_id(int g_id) {
-        this.g_id = g_id;
+    public void setO_gid(int o_gid) {
+        this.o_gid = o_gid;
     }
 
-    public String getG_name() {
-        return g_name;
+    public float getO_money() {
+        return o_money;
     }
 
-    public void setG_name(String g_name) {
-        this.g_name = g_name;
-    }
-
-    public float getG_price() {
-        return g_price;
-    }
-
-    public void setG_price(float g_price) {
-        this.g_price = g_price;
+    public void setO_money(float o_money) {
+        this.o_money = o_money;
     }
 
     public int getO_number() {
@@ -67,5 +59,4 @@ public class OredersEt {
     public void setO_date(String o_date) {
         this.o_date = o_date;
     }
-
 }

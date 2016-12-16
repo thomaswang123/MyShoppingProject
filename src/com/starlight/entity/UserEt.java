@@ -2,11 +2,13 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ *
+ * 用户类
  */
 public class UserEt {
    private int   u_id ;
    private String   u_name;
-   private String  u_password ;
+   private String  u_pawd ;
 
     public int getU_id() {
         return u_id;
@@ -24,11 +26,11 @@ public class UserEt {
         this.u_name = u_name;
     }
 
-    public String getU_password() {
-        return u_password;
+    public String getU_pawd() {
+        return u_pawd;
     }
 
-    public void setU_password(String u_password) {
-        this.u_password = u_password;
+    public void setU_pawd(String u_password) {
+        this.u_pawd = u_pawd;
     }
 }

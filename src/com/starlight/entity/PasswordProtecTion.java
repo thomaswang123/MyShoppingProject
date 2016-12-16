@@ -2,12 +2,22 @@ package com.starlight.entity;
 
 /**
  * Created by thomas.wang on 2016/12/9.
+ *
+ * 密保类
  */
 public class PasswordProtecTion {
     private int pp_id ;
-    private int u_id ;
     private String  pp_question ;
     private String  pp_answer ;
+    private int pp_uid;
+
+    public int getPp_uid() {
+        return pp_uid;
+    }
+
+    public void setPp_uid(int pp_uid) {
+        this.pp_uid = pp_uid;
+    }
 
     public int getPp_id() {
         return pp_id;
@@ -15,14 +25,6 @@ public class PasswordProtecTion {
 
     public void setPp_id(int pp_id) {
         this.pp_id = pp_id;
-    }
-
-    public int getU_id() {
-        return u_id;
-    }
-
-    public void setU_id(int u_id) {
-        this.u_id = u_id;
     }
 
     public String getPp_question() {
