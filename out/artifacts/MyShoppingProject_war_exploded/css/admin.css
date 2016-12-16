@@ -1,0 +1,48 @@
+
+.left_menu{
+    width: auto;
+    height: 100px;
+    background-color: floralwhite;
+}
+.left_menuzi{
+    padding-top: 50px;
+    margin-left: 200px;
+}
+
+body{
+    background-color:floralwhite ;
+}
+.certen_menu{
+    width: 80%;
+    height: 727px;
+    margin-left: 10%;
+    border: inset;
+   /* background-color: #394c53;*/
+}
+.left_menuzi span{
+    font-family: 幼圆 ;
+    color: #F07818;
+    margin-left: 20px;
+}
+.left_menuzi span a{
+    cursor: hand;
+}
+.yang{
+  width: 90%;
+    height: 640px;
+}
+.usertable tr{
+    height: 30px;
+}
+.usertable td{
+    width: 150px;
+}
+.yang {
+    display: none;
+}
+.iframea{
+    display: block;
+}
+.selectsp{
+    display: none;
+}

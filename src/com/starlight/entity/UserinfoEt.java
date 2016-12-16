@@ -7,8 +7,17 @@ package com.starlight.entity;
 public class UserinfoEt {
     private int uinfo_id ;
     private String uinfo_sex ;
+    private String uinfo_nickname ;
     private int uinfo_age ;
     private String  uinfo_address;
+
+    public String getUinfo_nickname() {
+        return uinfo_nickname;
+    }
+
+    public void setUinfo_nickname(String uinfo_nickname) {
+        this.uinfo_nickname = uinfo_nickname;
+    }
 
     public int getUinfo_id() {
         return uinfo_id;
