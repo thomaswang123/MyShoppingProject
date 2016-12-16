@@ -95,7 +95,7 @@ DROP TABLE ShoppingCart;
 
 CREATE TABLE ShoppingCart
 (
-   sc_id   INT                            ,
+   sc_id        INT                            ,
    sc_uid      INT                        NOT NULL ,
    sc_gid     INT                         NOT NULL ,
    sc_number    INT                       NOT NULL ,
@@ -149,11 +149,16 @@ DROP TABLE Opinion;
 CREATE TABLE Opinion
 (
    on_id          INT                           NOT NULL ,
-   on_gerade      INT                           NOT NULL ,
+   on_gid         INT                           NOT NULL ,
+   on_uid         INT                           NOT NULL ,
+   on_grade      INT                           NOT NULL ,
    on_discuss   VARCHAR (100)                     ,
    CONSTRAINT PK_OPINION_ONID PRIMARY KEY (on_id),
-   FOREIGN KEY (on_id) REFERENCES Goods (g_id)
+   FOREIGN KEY (on_gid) REFERENCES Goods (g_id)
 );
+--创建自增长序列
+ALTER TABLE Opinion modify on_id   INTEGER DEFAULT '1';
+ALTER TABLE Opinion modify on_id   INTEGER auto_increment ;
 
 --***********************************************************************************
 /*管理员*/
