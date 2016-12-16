@@ -1,10 +1,14 @@
 package com.starlight.controller;
 
+import com.starlight.dao.UserDao;
+import com.starlight.entity.UserEt;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by thomas.wang on 2016/12/9.
@@ -12,7 +16,7 @@ import java.util.ArrayList;
 @Controller
 public class Test {
     @RequestMapping("login.do")
-    public String test(){
+    public String test() {
         ApplicationContext act = new ClassPathXmlApplicationContext(
                 "spring-mvc.xml");
     /*    TestDao testdao = act.getBean(TestDao.class);
@@ -22,21 +26,18 @@ public class Test {
             System.out.println(lists.getAs_ages()+","+lists.getAs_id()+","
                                     +lists.getAs_name()+","+lists.getAs_acess());
         }*/
-     /*   AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);
-        ArrayList<AdminfoEt> list =  adminfodao.findAll();
-        for (AdminfoEt lists:list) {
-            System.out.println(lists.getAdm_id()+","+lists.getAdminfo_idnum()+","+
-                    lists.getAdminfo_address()+","+lists.getAdminfo_phome()+","+lists.getAdminfo_sex());
-        }*//*   AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);
-        ArrayList<AdminfoEt> list =  adminfodao.findAll();
+        UserDao userdao = act.getBean(UserDao.class);
+        List<UserEt> list = userdao.findAll();
+        for (UserEt lists : list) {
+            System.out.println(lists.getU_id()+","+lists.getU_name()+","+lists.getU_pawd());
+        }
+        /* AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);*/
+    /*    ArrayList<AdminfoEt> list =  adminfodao.findAll();
         for (AdminfoEt lists:list) {
             System.out.println(lists.getAdm_id()+","+lists.getAdminfo_idnum()+","+
                     lists.getAdminfo_address()+","+lists.getAdminfo_phome()+","+lists.getAdminfo_sex());
         }*/
-        System.out.println("aaaaaaa");
-        System.out.println("aaaaaaaaaaaaaaaa");
-        System.out.println("aaa");
         System.out.println("ahello");
-        return "index";
+        return "Index";
     }
 }

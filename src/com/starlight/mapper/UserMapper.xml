@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starlight.dao.UserDao">
+  <select id="findAll"  resultType="com.starlight.entity.UserEt">
+      	SELECT * FROM USER
+  </select>
+  <!--<select id="findById" parameterType="int" resultType="com.wy.test.entity.Dept">
+  	select * from DEPT where DEPTNO=#{id}
+  </select>
+  <insert id="save" parameterType="com.wy.test.entity.Dept">
+  	insert into DEPT(deptno,dname,loc) 
+  		values(seq_dept.nextval,#{dname},#{loc})
+  </insert>
+  <delete id="deleteById" parameterType="int">
+  	delete from DEPT where deptno=#{id}
+  </delete>
+  <update id="update" parameterType="com.wy.test.entity.Dept">
+  	update DEPT set dname=#{dname},loc=#{loc}  where deptno=#{deptno}
+  </update>
+  <delete id="deleteAll" parameterType="com.wy.test.entity.Dept">
+  	delete from DEPT 
+  	<where>
+  		<if test="deptnos!=null">
+  			deptno in
+  			<foreach collection="deptnos" item="dept" open="(" separator="," close=")">
+	  		#{dept}
+	  		</foreach>
+  		</if>
+  		<if test="deptnos==null">
+  			1=2
+  		</if>
+  	</where>
+  </delete>-->
+</mapper>
