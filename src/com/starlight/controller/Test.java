@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by thomas.wang on 2016/12/9.
  */
 @Controller
-public class test {
+public class Test {
     @RequestMapping("login.do")
     public String test(){
         ApplicationContext act = new ClassPathXmlApplicationContext(
