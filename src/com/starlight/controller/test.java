@@ -24,12 +24,12 @@ public class test {
             System.out.println(lists.getAs_ages()+","+lists.getAs_id()+","
                                     +lists.getAs_name()+","+lists.getAs_acess());
         }*/
-        AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);
+       /* AdminfoEtDao adminfodao = act.getBean(AdminfoEtDao.class);
         ArrayList<AdminfoEt> list =  adminfodao.findAll();
         for (AdminfoEt lists:list) {
             System.out.println(lists.getAdm_id()+","+lists.getAdminfo_idnum()+","+
                     lists.getAdminfo_address()+","+lists.getAdminfo_phome()+","+lists.getAdminfo_sex());
-        }
+        }*/
         System.out.println("aaaaaaa");
         System.out.println("aaaaaaaaaaaaaaaa");
         System.out.println("aaa");

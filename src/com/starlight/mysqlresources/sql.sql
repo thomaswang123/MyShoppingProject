@@ -1,11 +1,11 @@
-/*创建数据库*/
+--创建数据库
 
 CREATE database accout_demo;
 
-/*使用数据库*/
+--使用数据库
 use accout_demo;
 
-/***********************************************************************************/
+--***********************************************************************************
 /*用户表*/
 DROP TABLE User;
 
@@ -17,13 +17,13 @@ CREATE TABLE User
    CONSTRAINT  PK_USER_UID PRIMARY KEY (u_id)
 );
 
-/*创建自增长序列*/
+--创建自增长序列
 
 ALTER TABLE User modify u_id INTEGER DEFAULT '1';
 ALTER TABLE User modify u_id INTEGER auto_increment ;
 
 
-/***********************************************************************************/
+--***********************************************************************************
 /*用户密保*/
 DROP TABLE PasswordProtection;
 
@@ -37,24 +37,24 @@ CREATE TABLE PasswordProtection
    FOREIGN KEY (pp_uid) REFERENCES User(u_id)
 );
 
-/*创建自增长序列*/
+--创建自增长序列
 ALTER TABLE PasswordProtection modify pp_id INTEGER DEFAULT '1';
 ALTER TABLE PasswordProtection modify pp_id INTEGER auto_increment ;
 
-/***********************************************************************************/
+--***********************************************************************************
 /*钱包*/
 DROP TABLE Wallet;
 
 CREATE TABLE Wallet
 (
-   w_id           INT                           ,
+   w_id                                       ,
    w_money        FLOAT (7,2),
    w_paypwd       INT                            NOT NULL ,
    CONSTRAINT PK_WALLET_WID PRIMARY KEY (w_id ),
    FOREIGN KEY (w_id) REFERENCES User(u_id)
 );
 
-/***********************************************************************************/
+--***********************************************************************************
 /*用户信息表*/
 DROP TABLE UserInfo;
 
@@ -69,7 +69,7 @@ CREATE TABLE UserInfo
    CONSTRAINT PK_USERINF_ID PRIMARY KEY (uinfo_id),
    FOREIGN KEY (uinfo_id) REFERENCES User(u_id)
 );
-/***********************************************************************************/
+--***********************************************************************************
 /*商品表*/
 DROP TABLE Goods;
 
@@ -83,18 +83,19 @@ CREATE TABLE Goods
    CONSTRAINT PK_GOODS_GID PRIMARY KEY (g_id)
 );
 
-/*创建自增长序列*/
+--创建自增长序列
 ALTER TABLE Goods modify g_id   INTEGER DEFAULT '1';
 ALTER TABLE Goods modify g_id   INTEGER auto_increment ;
 
 
-/***********************************************************************************/
+--***********************************************************************************
+
 /*购物车*/
 DROP TABLE ShoppingCart;
 
 CREATE TABLE ShoppingCart
 (
-   sc_id   INT                            ,
+   sc_id        INT                            ,
    sc_uid      INT                        NOT NULL ,
    sc_gid     INT                         NOT NULL ,
    sc_number    INT                       NOT NULL ,
@@ -105,11 +106,11 @@ CREATE TABLE ShoppingCart
    FOREIGN KEY (sc_gid) REFERENCES Goods(g_id)
 );
 
-/*创建自增长序列*/
+--创建自增长序列
 ALTER TABLE ShoppingCart modify sc_id  INTEGER DEFAULT '1';
 ALTER TABLE ShoppingCart modify sc_id  INTEGER auto_increment ;
 
-/***********************************************************************************/
+--***********************************************************************************
 /*订单表*/
 DROP TABLE Orders;
 
@@ -125,41 +126,41 @@ CREATE TABLE Orders
    FOREIGN KEY (o_uid) REFERENCES User (u_id)
 );
 
-/*创建自增长序列*/
+--创建自增长序列
 ALTER TABLE Orders modify o_id   INTEGER DEFAULT '1';
 ALTER TABLE Orders modify o_id   INTEGER auto_increment ;
 
-/***********************************************************************************/
+--***********************************************************************************
 /*库存*/
 DROP TABLE Repertory;
 
 CREATE TABLE Repertory
 (
-   ry_id        INT                            ,
-   ry_number    INT                            NOT NULL,
-   CONSTRAINT PK_REPERTORY_RYID PRIMARY KEY (ry_id),
-   FOREIGN KEY (ry_id) REFERENCES Goods (g_id)
+  ry_id        INT                            ,
+  ry_number    INT                            NOT NULL,
+  CONSTRAINT PK_REPERTORY_RYID PRIMARY KEY (ry_id),
+  FOREIGN KEY (ry_id) REFERENCES Goods (g_id)
 );
 
-/***********************************************************************************/
+--***********************************************************************************
 /*意见表*/
 DROP TABLE Opinion;
 
 CREATE TABLE Opinion
 (
-   on_id          INT                            ,
+   on_id          INT                           NOT NULL ,
+   on_gid         INT                           NOT NULL ,
+   on_uid         INT                           NOT NULL ,
    on_grade      INT                           NOT NULL ,
    on_discuss   VARCHAR (100)                     ,
-   on_gid         INT,
-   on_uid         INT,
    CONSTRAINT PK_OPINION_ONID PRIMARY KEY (on_id),
    FOREIGN KEY (on_gid) REFERENCES Goods (g_id)
 );
-/*创建自增长序列*/
+--创建自增长序列
 ALTER TABLE Opinion modify on_id   INTEGER DEFAULT '1';
 ALTER TABLE Opinion modify on_id   INTEGER auto_increment ;
 
-/***********************************************************************************/
+--***********************************************************************************
 /*管理员*/
 DROP TABLE Admin;
 
