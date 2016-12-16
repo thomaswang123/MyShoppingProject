@@ -103,11 +103,9 @@ create table ShoppingCart(
   foreign key(U_Id) references User(U_Id)
 );
 
-
 --设置PP_Id默认值和自定增长序列
 alter table ShoppingCart modify SC_Id integer default '1';
 alter table ShoppingCart modify SC_Id integer auto_increment ;
-
 
 --订单表
 create table Orders(
