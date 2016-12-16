@@ -26,11 +26,11 @@ public class UserEt {
         this.u_name = u_name;
     }
 
-    public String getU_password() {
-        return u_password;
+    public String getU_pawd() {
+        return u_pawd;
     }
 
-    public void setU_password(String u_password) {
-        this.u_password = u_password;
+    public void setU_pawd(String u_password) {
+        this.u_pawd = u_pawd;
     }
 }

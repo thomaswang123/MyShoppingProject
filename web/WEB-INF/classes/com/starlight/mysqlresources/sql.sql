@@ -1,5 +1,5 @@
 /*用户表*/
-create table User
+create table Users
 (
    u_id         int                            not null,
    u_name       varchar(16)                    not null,
