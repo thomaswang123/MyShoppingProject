@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class test {
     @RequestMapping("login.do")
+
+
     public void test() {
         ApplicationContext act = new ClassPathXmlApplicationContext(
+
                 "spring-mvc.xml");
 /*    TestDao testdao = act.getBean(TestDao.class);
         System.out.println(act);
