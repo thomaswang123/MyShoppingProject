@@ -11,6 +11,15 @@ public class GoodsEt {
     private String g_name ;
     private float g_price ;
     private String  g_describe ;
+    private String g_picture ;
+
+    public String getG_picture() {
+        return g_picture;
+    }
+
+    public void setG_picture(String g_picture) {
+        this.g_picture = g_picture;
+    }
 
     public int getG_id() {
         return g_id;
