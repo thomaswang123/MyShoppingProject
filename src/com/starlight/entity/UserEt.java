@@ -6,7 +6,7 @@ package com.starlight.entity;
 public class UserEt {
    private int   u_id ;
    private String   u_name;
-   private String  u_password ;
+   private String  u_pawd ;
 
     public int getU_id() {
         return u_id;

@@ -6,7 +6,6 @@ package com.starlight.entity;
 public class GoodsEt {
     private int g_id ;
     private String g_name ;
-    private String  g_picture ;
     private float g_price ;
     private String  g_describe ;
 
@@ -24,14 +23,6 @@ public class GoodsEt {
 
     public void setG_name(String g_name) {
         this.g_name = g_name;
-    }
-
-    public String getG_picture() {
-        return g_picture;
-    }
-
-    public void setG_picture(String g_picture) {
-        this.g_picture = g_picture;
     }
 
     public String getG_describe() {

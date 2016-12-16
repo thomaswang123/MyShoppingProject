@@ -1,5 +1,5 @@
 /*用户表*/
-create table User
+create table Users
 (
    u_id         int                            not null,
    u_name       varchar(16)                    not null,
@@ -35,21 +35,21 @@ create table UserInfo
 /*购物车*/
 create table ShoppingCart
 (
-   sc_id(    int                            not null,
-   sc_uid      int                          not  null,
-   sc_gid     int                           not  null,
-   sc_number    int                          not  null,
+   sc_id(         int                            not null,
+   sc_uid         int                          not  null,
+   sc_gid         int                           not  null,
+   sc_number      int                          not  null,
    sc_summoney    float(7,2)                 not   null,
-   sc_date      date                         not   null,
+   sc_date        date                         not   null,
    sc_oid         int                         not   null,
    constraint PK_SHOPPINGCART primary key clustered (sc_id)
 );
 /*订单表*/
 create table Orders
 (
-   o_id         int                            not    null,
-   o_uid        int                            not    null,
-   o_gid        int                            not    null,
+   o_id           int                            not    null,
+   o_uid          int                            not    null,
+   o_gid          int                            not    null,
    o_money        float(7,2)                   not    null,
    o_date         date                         not    null,
    o_number       int                                  null,
