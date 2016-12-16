@@ -9,6 +9,15 @@ public class PasswordProtecTion {
     private int pp_id ;
     private String  pp_question ;
     private String  pp_answer ;
+    private int pp_uid;
+
+    public int getPp_uid() {
+        return pp_uid;
+    }
+
+    public void setPp_uid(int pp_uid) {
+        this.pp_uid = pp_uid;
+    }
 
     public int getPp_id() {
         return pp_id;
